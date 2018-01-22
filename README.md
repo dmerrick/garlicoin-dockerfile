@@ -12,7 +12,7 @@ Dockerfile for Garlicoin Daemon Linux
 See [garlicoin.conf](garlicoin.conf) for an example configuration file.  
 **It is recommended that you change the `rpcpassword` field before running!**
 
-### Copy existing wallet file to data directory ()
+### Copy existing wallet file to data directory (Optional)
     # cp wallet.dat /var/lib/garlicoin
     
 A new wallet will be created automatically if you do not have an existing one you wish to use.
