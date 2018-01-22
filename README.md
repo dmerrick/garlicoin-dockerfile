@@ -9,7 +9,7 @@ Dockerfile for Garlicoin Daemon Linux
 ### Create Garlicoin daemon configuration to data directory
     # cp garlicoin.conf /var/lib/garlicoin
     
-See [garlicoin.conf](garlicoin.conf) for an example configuration file.
+See [garlicoin.conf](garlicoin.conf) for an example configuration file.  
 **It is recommended that you change the `rpcpassword` field before running!**
 
 ### Copy wallet file (OPTIONAL)
