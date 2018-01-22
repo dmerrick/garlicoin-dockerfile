@@ -1,7 +1,7 @@
 # garlicoin-dockerfile
 Dockerfile for Garlicoin Daemon Linux
 
-:moneybag: Donations welcomed at `GTbyTvkYMXwWUYZAnUxtWh448gRkHnwt3u` :bow:
+:moneybag: Donations welcomed at `GZkqkLUXsWG7qT9aT9SPmKkZFxcbb7YrMx` :bow:
 
 ### Build Docker Image
     docker build -t garlicoin .
