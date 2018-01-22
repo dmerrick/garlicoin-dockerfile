@@ -6,7 +6,7 @@ Dockerfile for Garlicoin Daemon Linux
 ### Create data directory on host
     # mkdir -p /var/lib/garlicoin
 
-### Create Garlicoin daemon configuration to data directory
+### Copy Garlicoin configuration to data directory
     # cp garlicoin.conf /var/lib/garlicoin
     
 See [garlicoin.conf](garlicoin.conf) for an example configuration file.  
