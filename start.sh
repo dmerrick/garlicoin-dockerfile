@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/bash -e
+# this starts the docker image
 
 docker run -d \
     -p 42068:42068 \
