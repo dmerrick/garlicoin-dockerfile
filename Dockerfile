@@ -4,10 +4,10 @@ FROM ubuntu:16.04
 ENV DEBIAN_FRONTEND noninteractive
 
 # Release information
-ENV GARLICOIN_PACKAGE Garlicoin-x86_64-unknown-linux-gnu
-ENV GARLICOIN_ARCHIVE $GARLICOIN_PACKAGE.tar.gz
+ENV GARLICOIN_ARCHIVE Garlicoin-x86_64-unknown-linux-gnu.tar.gz
 ENV GARLICOIN_RELEASE https://github.com/GarlicoinOrg/Garlicoin/releases/download/20180121185844-arm-linux-gnueabihf/$GARLICOIN_ARCHIVE
 ENV GARLICOIN_DIR /opt/garlicoin
+ENV GARLICOIN_DATA_DIR /root/.garlicoin
 
 # Install dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -28,27 +28,18 @@ RUN cd /tmp \
 # Add to PATH
 ENV PATH $GARLICOIN_DIR/bin:$PATH
 
-# Set data directory path
-ENV GARLICOIN_DATA_DIR /root/.garlicoin
-
-# Download and install cpuminer
+# Download build, and install cpuminer
 RUN cd /tmp \
   && git clone https://github.com/tpruvot/cpuminer-multi.git \
   && cd cpuminer-multi && ./build.sh && make install \
   && rm -rf /tmp
 
-# Copy scripts
-COPY start-daemon.sh ${GARLICOIN_DIR}
-
-# Set executable flag
-RUN chmod +x ${GARLICOIN_DIR}/*.sh
-
 # Expose RPC and P2P ports
 ENV RPC_PORT 42068
 ENV P2P_PORT 42069
-
 EXPOSE ${RPC_PORT} ${P2P_PORT}
 
 # Run the daemon script
+COPY init.sh ${GARLICOIN_DIR}
 WORKDIR ${GARLICOIN_DIR}
-CMD [ "./start-daemon.sh" ]
+CMD [ "./init.sh" ]
