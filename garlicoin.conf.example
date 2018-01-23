@@ -1,5 +1,5 @@
 rpcuser=garlicoinrpc
-rpcpassword=$uperSecr3tPwd!
+rpcpassword=put.your.password.here
 rpcallowip=0.0.0.0/0
 rpcport=42068
 

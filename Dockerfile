@@ -1,5 +1,4 @@
-FROM debian:jessie-slim
-LABEL maintainer="Erik Rogers <erik.rogers@live.com>"
+FROM ubuntu:16.04
 
 # Headless
 ENV DEBIAN_FRONTEND noninteractive
@@ -8,7 +7,6 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV GARLICOIN_PACKAGE Garlicoin-x86_64-unknown-linux-gnu
 ENV GARLICOIN_ARCHIVE $GARLICOIN_PACKAGE.tar.gz
 ENV GARLICOIN_RELEASE https://github.com/GarlicoinOrg/Garlicoin/releases/download/20180121185844-arm-linux-gnueabihf/$GARLICOIN_ARCHIVE
-
 ENV GARLICOIN_DIR /opt/garlicoin
 
 # Install dependencies
@@ -29,7 +27,7 @@ RUN cd /tmp \
 ENV PATH $GARLICOIN_DIR/bin:$PATH
 
 # Set data directory path
-ENV GARLICOIN_DATA_DIR /mnt/garlicoin
+ENV GARLICOIN_DATA_DIR /root/.garlicoin
 
 # Copy scripts
 COPY start-daemon.sh ${GARLICOIN_DIR}
