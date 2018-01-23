@@ -13,6 +13,8 @@ ENV GARLICOIN_DIR /opt/garlicoin
 RUN apt-get update && apt-get install -y --no-install-recommends \
   wget \
   ca-certificates \
+  # for cpuminer
+  automake autoconf pkg-config libcurl4-openssl-dev libjansson-dev libssl-dev libgmp-dev make g++ \
   && rm -rf /var/cache/apk/*
 
 # Download and install the Garlicoin release
@@ -28,6 +30,12 @@ ENV PATH $GARLICOIN_DIR/bin:$PATH
 
 # Set data directory path
 ENV GARLICOIN_DATA_DIR /root/.garlicoin
+
+# Download and install cpuminer
+RUN cd /tmp \
+  && git clone https://github.com/tpruvot/cpuminer-multi.git \
+  && cd cpuminer-multi && ./build.sh && make install \
+  && rm -rf /tmp
 
 # Copy scripts
 COPY start-daemon.sh ${GARLICOIN_DIR}
