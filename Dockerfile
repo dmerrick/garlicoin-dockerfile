@@ -4,9 +4,9 @@ FROM ubuntu:16.04
 ENV DEBIAN_FRONTEND noninteractive
 
 # Release information
-ENV GARLICOIN_ARCHIVE Garlicoin-x86_64-unknown-linux-gnu.tar.gz
-ENV GARLICOIN_RELEASE https://github.com/GarlicoinOrg/Garlicoin/releases/download/20180121185844-arm-linux-gnueabihf/$GARLICOIN_ARCHIVE
-ENV GARLICOIN_DIR /opt/garlicoin
+ENV GARLICOIN_ARCHIVE  Garlicoin-x86_64-unknown-linux-gnu.tar.gz
+ENV GARLICOIN_RELEASE  https://github.com/GarlicoinOrg/Garlicoin/releases/download/20180121185844-arm-linux-gnueabihf/$GARLICOIN_ARCHIVE
+ENV GARLICOIN_DIR      /opt/garlicoin
 ENV GARLICOIN_DATA_DIR /root/.garlicoin
 
 # Install dependencies
